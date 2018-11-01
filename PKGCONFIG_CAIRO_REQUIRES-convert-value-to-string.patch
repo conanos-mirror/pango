@@ -1,0 +1,12 @@
+diff -Nru pango-1.40.14/meson.build pango-1.40.14.1/meson.build
+--- pango-1.40.14/meson.build	2017-11-15 19:20:32.000000000 -0800
++++ pango-1.40.14.1/meson.build	2018-11-01 01:56:14.185333053 -0700
+@@ -326,7 +326,7 @@
+ pkgconf.set('includedir', pango_includedir)
+ pkgconf.set('VERSION', meson.project_version())
+ pkgconf.set('PANGO_API_VERSION', pango_api_version)
+-pkgconf.set('PKGCONFIG_CAIRO_REQUIRES', pangocairo_requires)
++pkgconf.set('PKGCONFIG_CAIRO_REQUIRES', ' '.join(pangocairo_requires))
+ 
+ pkgconf_files = [
+   [ 'pango.pc' ],
