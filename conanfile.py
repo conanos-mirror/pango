@@ -1,63 +1,88 @@
 from conans import ConanFile, CMake, tools, Meson
+from conanos.build import config_scheme
 import os
 
 
 class PangoConan(ConanFile):
     name = "pango"
-    version = "1.40.14"
+    version = "1.42.4"
     description = "Internationalized text layout and rendering library"
     url = 'https://github.com/conanos/pango'
     homepage = 'https://www.pango.org/'
     license = "LGPL-v2+"
     exports = ["COPYING"]
+    generators = "gcc","visual_studio"
     settings = "os", "compiler", "build_type", "arch"
-    options = {"shared": [True, False]}
-    default_options = "shared=True"
-    generators = "cmake"
-    requires = ('cairo/1.14.12@conanos/dev','fontconfig/2.12.6@conanos/dev','freetype/2.9.0@conanos/dev',
-    'harfbuzz/1.7.5@conanos/dev','libffi/3.3-rc0@conanos/dev','pixman/0.34.0@conanos/dev',
-    'libpng/1.6.34@conanos/dev','gobject-introspection/1.58.0@conanos/dev')
+    options = {
+        "shared": [True, False],
+        'fPIC': [True, False]
+    }
+    default_options = { 'shared': False, 'fPIC': True }
 
-    source_subfolder = "source_subfolder"
-    patches = ['PKGCONFIG_CAIRO_REQUIRES-convert-value-to-string.patch']
+    _source_subfolder = "source_subfolder"
+    _build_subfolder = "build_subfolder"
+
+    def requirements(self):
+        self.requires.add("cairo/1.15.12@conanos/stable")
+        self.requires.add("fontconfig/2.13.0@conanos/stable")
+        self.requires.add("freetype/2.9.1@conanos/stable")    
+        self.requires.add("harfbuzz/2.1.3@conanos/stable")
+        self.requires.add("glib/2.58.1@conanos/stable")
+        self.requires.add("fribidi/1.0.5@conanos/stable")
+
+        config_scheme(self)
+    
+    def build_requirements(self):
+        self.build_requires("libffi/3.299999@conanos/stable")
+        self.build_requires("libpng/1.6.34@conanos/stable")
+        self.build_requires("zlib/1.2.11@conanos/stable")
+        self.build_requires("bzip2/1.0.6@conanos/stable")
+        self.build_requires("expat/2.2.5@conanos/stable")
+        self.build_requires("pixman/0.34.0@conanos/stable")
+        if self.settings.os == "Linux":
+            self.build_requires("libuuid/1.0.3@conanos/stable")
+
+    def config_options(self):
+        if self.settings.os == "Windows":
+            del self.options.fPIC
+    
+    def configure(self):
+        del self.settings.compiler.libcxx
 
     def source(self):
         url_ = 'https://github.com/GNOME/pango/archive/{version}.tar.gz'.format(version=self.version)
-        patch_url_ = 'https://raw.githubusercontent.com/conanos/pango/master/{patch}'
         tools.get(url_)
-        for patch in self.patches:
-            tools.download(patch_url_.format(patch=patch), patch)
-            tools.patch(patch_file=patch)
         extracted_dir = self.name + "-" + self.version
-        os.rename(extracted_dir, self.source_subfolder)
+        os.rename(extracted_dir, self._source_subfolder)
 
     def build(self):
-        with tools.chdir(self.source_subfolder):
-            with tools.environment_append({
-                'PATH':'%s/bin:%s'%(self.deps_cpp_info["gobject-introspection"].rootpath, os.getenv("PATH")),
-                'LD_LIBRARY_PATH':'%s/lib'%(self.deps_cpp_info["libffi"].rootpath),
-                }):
+        pkg_config_paths=[ os.path.join(self.deps_cpp_info[i].rootpath, "lib", "pkgconfig") 
+                           for i in ["fontconfig","freetype","harfbuzz","glib","libffi","fribidi","cairo"] ]
+        pkg_config_paths.extend([ os.path.join(self.deps_cpp_info[i].rootpath, "lib", "pkgconfig") 
+                                  for i in ["libpng","pixman","zlib","bzip2","libuuid","expat"] ])
+        prefix = os.path.join(self.build_folder, self._build_subfolder, "install")
+        binpath=[ os.path.join(self.deps_cpp_info[i].rootpath, "bin") for i in ["glib"] ]
+        include = [ os.path.join(self.deps_cpp_info["fontconfig"].rootpath, "include"),
+                    os.path.join(self.deps_cpp_info["freetype"].rootpath, "include","freetype2"),
+                    os.path.join(self.deps_cpp_info["cairo"].rootpath, "include","cairo")
+                  ]
 
-                meson = Meson(self)
-                meson.configure(
-                    defs={'prefix':'%s/builddir/install'%(os.getcwd()), 'libdir':'lib','enable_docs':'false',},
-                    source_dir = '%s'%(os.getcwd()),
-                    build_dir= '%s/builddir'%(os.getcwd()),
-                    pkg_config_paths = [
-                        '%s/lib/pkgconfig'%(self.deps_cpp_info["cairo"].rootpath),
-                        '%s/lib/pkgconfig'%(self.deps_cpp_info["fontconfig"].rootpath),
-                        '%s/lib/pkgconfig'%(self.deps_cpp_info["freetype"].rootpath),
-                        '%s/lib/pkgconfig'%(self.deps_cpp_info["harfbuzz"].rootpath),
-                        '%s/lib/pkgconfig'%(self.deps_cpp_info["pixman"].rootpath),
-                        '%s/lib/pkgconfig'%(self.deps_cpp_info["libpng"].rootpath),
-                        ])
-                meson.build(args=['-j2'])
-                self.run('ninja -C {0} install'.format(meson.build_dir))
+        libpath = [ os.path.join(self.deps_cpp_info[i].rootpath, "lib") for i in ["libffi", "libpng", "bzip2"] ]
+        with tools.environment_append({
+            'PATH' : os.pathsep.join(binpath + [os.getenv('PATH')]),
+            'C_INCLUDE_PATH' : os.pathsep.join(include),
+            'CPLUS_INCLUDE_PATH' : os.pathsep.join(include),
+            'LD_LIBRARY_PATH' : os.pathsep.join(libpath),
+            }):
+            meson = Meson(self)
+            meson.configure(defs={'prefix' : prefix, 'libdir':'lib','gir' : 'false'},
+                            source_dir=self._source_subfolder, build_dir=self._build_subfolder,
+                            pkg_config_paths=pkg_config_paths)
+            meson.build()
+            self.run('ninja -C {0} install'.format(meson.build_dir))
 
     def package(self):
-        if tools.os_info.is_linux:
-            with tools.chdir(self.source_subfolder):
-                self.copy("*", src="%s/builddir/install"%(os.getcwd()))
+        self.copy("*", dst=self.package_folder, src=os.path.join(self.build_folder,self._build_subfolder, "install"))
 
     def package_info(self):
         self.cpp_info.libs = tools.collect_libs(self)
