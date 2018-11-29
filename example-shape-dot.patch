@@ -1,0 +1,22 @@
+diff -Nur pango-1.42.4/examples/cairoshape.c pango-1.42.4-example/examples/cairoshape.c
+--- pango-1.42.4/examples/cairoshape.c	2018-08-20 07:21:39.000000000 -0700
++++ pango-1.42.4-example/examples/cairoshape.c	2018-11-29 00:24:35.330072981 -0800
+@@ -26,14 +26,14 @@
+ 
+ #include <pango/pangocairo.h>
+ 
+-#define BULLET "•"
++#define BULLET "*"
+ 
+ const char text[] =
+ "The GNOME project provides two things:\n"
+ "\n"
+-"  • The GNOME desktop environment\n"
+-"  • The GNOME development platform\n"
+-"  • Planet GNOME";
++"  * The GNOME desktop environment\n"
++"  * The GNOME development platform\n"
++"  * Planet GNOME";
+ 
+ typedef struct {
+   double width, height;
