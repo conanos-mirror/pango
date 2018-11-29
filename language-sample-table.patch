@@ -1,69 +1,299 @@
 diff -Nur pango-1.42.4/pango/pango-language-sample-table.h pango-1.42.4-language/pango/pango-language-sample-table.h
 --- pango-1.42.4/pango/pango-language-sample-table.h	2018-08-20 07:21:39.000000000 -0700
-+++ pango-1.42.4-language/pango/pango-language-sample-table.h	2018-11-28 23:02:49.649902537 -0800
-@@ -92,7 +92,7 @@
++++ pango-1.42.4-language/pango/pango-language-sample-table.h	2018-11-29 00:04:35.854020100 -0800
+@@ -59,6 +59,7 @@
+ 	 "Ek kan glas eet, maar dit doen my nie skade nie."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#if 0
+ LANGUAGE(
+ 	 ar	/* Arabic */,
+ 	 WP-PANG,
+@@ -71,24 +72,28 @@
+ 	 "Gvxam mincetu apocikvyeh: ñizol ce mamvj ka raq kuse bafkeh mew."
+ 	 /* Tale under the full moon: the chief chemamull and the clay old woman at the lake/sea. */
+ 	)
++#endif
+ LANGUAGE(
+ 	 bar	/* Bavarian */,
+ 	 GLASS,
+ 	 "I koh Glos esa, und es duard ma ned wei."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#if 0
+ LANGUAGE(
+ 	 bg	/* Bulgarian */,
+ 	 WP-SFD,
+ 	 "Под южно дърво, цъфтящо в синьо, бягаше малко пухкаво зайче."
+ 	 /* A little fluffy young rabbit ran under a southern tree blooming in blue */
+ 	)
++#endif
+ LANGUAGE(
+ 	 bi	/* Bislama */,
+ 	 GLASS,
+ 	 "Mi save kakae glas, hemi no save katem mi."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#if 0
  LANGUAGE(
  	 bn	/* Bengali */,
  	 GLASS,
--	 "আমি কাঁচ খেতে পারি, তাতে আমার কোনো ক্ষতি হয় না।"
-+	 "--------deleted--------"
+@@ -125,12 +130,14 @@
+ 	 "Příliš žluťoučký kůň úpěl ďábelské ódy."
+ 	 /* A too yellow horse moaned devil odes. */
+ 	)
++#endif
+ LANGUAGE(
+ 	 cy	/* Welsh */,
+ 	 GLASS,
+ 	 "Dw i'n gallu bwyta gwydr, 'dyw e ddim yn gwneud dolur i mi."
  	 /* I can eat glass and it doesn't hurt me. */
  	)
++#if 0
  LANGUAGE(
-@@ -294,7 +294,7 @@
+ 	 da	/* Danish */,
+ 	 WP-SFD,
+@@ -149,12 +156,14 @@
+ 	 "Θέλει αρετή και τόλμη η ελευθερία. (Ανδρέας Κάλβος)"
+ 	 /* Liberty requires virtue and mettle. (Andreas Kalvos) */
+ 	)
++#endif
+ LANGUAGE(
+ 	 en	/* English */,
+ 	 GSPECI,
+ 	 "The quick brown fox jumps over the lazy dog."
+ 	)
+-LANGUAGE(
++#if 0
++ANGUAGE(
+ 	 enm	/* Middle English */,
+ 	 GLASS,
+ 	 "Ich canne glas eten and hit hirtiþ me nouȝt."
+@@ -178,41 +187,48 @@
+ 	 "See väike mölder jõuab rongile hüpata."
+ 	 /* This small miller is able to jump on the train. */
+ 	)
++#endif
+ LANGUAGE(
+ 	 eu	/* Basque */,
+ 	 GLASS,
+ 	 "Kristala jan dezaket, ez dit minik ematen."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#if 0
+ LANGUAGE(
+ 	 fa	/* Persian */,
+ 	 MISC	/* Behdad Esfahbod (#548730) */,
+ 	 "«الا یا اَیُّها السّاقی! اَدِرْ کَأساً وَ ناوِلْها!» که عشق آسان نمود اوّل، ولی افتاد مشکل‌ها!"
+ 	)
++#endif
+ LANGUAGE(
+ 	 fi	/* Finnish */,
+ 	 WP-SFD,
+ 	 "Viekas kettu punaturkki laiskan koiran takaa kurkki."
+ 	 /* The cunning red-coated fox peeped from behind the lazy dog. */
+ 	)
++#if 0
+ LANGUAGE(
+ 	 fr	/* French */,
+ 	 MISC	/* Vincent Untz (#549520) http://fr.wikipedia.org/wiki/Pangramme */,
+ 	 "Voix ambiguë d'un cœur qui, au zéphyr, préfère les jattes de kiwis."
+ 	 /* Ambiguous voice of a heart that, in the wind, prefers bowls of kiwis. */
+ 	)
++#endif
+ LANGUAGE(
+ 	 fro	/* Old French */,
+ 	 GLASS,
+ 	 "Je puis mangier del voirre. Ne me nuit."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#if 0
+ LANGUAGE(
+ 	 ga	/* Irish */,
+ 	 WP-PANG,
+ 	 "Chuaigh bé mhórshách le dlúthspád fíorfhinn trí hata mo dhea-phorcáin bhig."
+ 	 /* A maiden of large appetite with an intensely white, dense spade went through the hat of my good little porker. */
+ 	)
++#endif
+ LANGUAGE(
+ 	 gd	/* Scottish Gaelic */,
+ 	 GLASS,
+@@ -225,6 +241,7 @@
+ 	 "Eu podo xantar cristais e non cortarme."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#if 0
+ LANGUAGE(
+ 	 got	/* Gothic */,
+ 	 GLASS,
+@@ -237,12 +254,14 @@
+ 	 "હું કાચ ખાઇ શકુ છુ અને તેનાથી મને દર્દ નથી થતુ."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#endif
+ LANGUAGE(
+ 	 gv	/* Manx Gaelic */,
+ 	 GLASS,
+ 	 "Foddym gee glonney agh cha jean eh gortaghey mee."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#if 0
+ LANGUAGE(
+ 	 haw	/* Hawaiian */,
+ 	 GLASS,
+@@ -261,12 +280,14 @@
+ 	 "नहीं नजर किसी की बुरी नहीं किसी का मुँह काला जो करे सो उपर वाला"
+ 	 /* its not in the sight or the face, but its all in god's grace. */
+ 	)
++#endif
+ LANGUAGE(
+ 	 hr	/* Croatian */,
+ 	 GLASS,
+ 	 "Ja mogu jesti staklo i ne boli me."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#if 0
+ LANGUAGE(
+ 	 hu	/* Hungarian */,
+ 	 WP-SFD,
+@@ -285,17 +306,20 @@
+ 	 "Kæmi ný öxi hér ykist þjófum nú bæði víl og ádrepa"
+ 	 /* If a new axe were here, thieves would feel increasing deterrence and punishment. */
+ 	)
++#endif
+ LANGUAGE(
+ 	 it	/* Italian */,
+ 	 WP-SFD,
+ 	 "Ma la volpe, col suo balzo, ha raggiunto il quieto Fido."
+ 	 /* But the fox, with its jump, reached the calm dog */
+ 	)
++#if 0
  LANGUAGE(
  	 ja	/* Japanese */,
  	 KERMIT,
--	 "いろはにほへと ちりぬるを 色は匂へど 散りぬるを"
-+	 "--------deleted--------"
+ 	 "いろはにほへと ちりぬるを 色は匂へど 散りぬるを"
  	)
++#endif
  LANGUAGE(
  	 jam	/* Jamaican Creole English */,
-@@ -481,7 +481,7 @@
- LANGUAGE(
- 	 sa	/* Sanskrit */,
- 	 GLASS,
--	 "काचं शक्नोम्यत्तुम् । नोपहिनस्ति माम् ॥"
-+	 "--------deleted--------"
+ 	 KERMIT,
+@@ -313,6 +337,7 @@
+ 	 "Aku isa mangan beling tanpa lara."
  	 /* I can eat glass and it doesn't hurt me. */
  	)
++#if 0
  LANGUAGE(
-@@ -548,7 +548,7 @@
+ 	 ka	/* Georgian */,
+ 	 GLASS,
+@@ -337,11 +362,13 @@
+ 	 "Mý a yl dybry gwéder hag éf ny wra ow ankenya."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#endif
  LANGUAGE(
- 	 th	/* Thai */,
+ 	 la	/* Latin */,
+ 	 WP-PANG,
+ 	 "Sic surgens, dux, zelotypos quam karus haberis"
+ 	)
++#if 0
+ LANGUAGE(
+ 	 lt	/* Lithuanian */,
+ 	 WP-PANG,
+@@ -384,6 +411,7 @@
+ 	 "मी काच खाऊ शकतो, मला ते दुखत नाही."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#endif
+ LANGUAGE(
+ 	 ms	/* Malay */,
+ 	 GLASS,
+@@ -396,17 +424,20 @@
+ 	 "M' pozz magna' o'vetr, e nun m' fa mal."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#if 0
+ LANGUAGE(
+ 	 nb	/* Norwegian Bokmål */,
+ 	 GSPECI,
+ 	 "Vår sære Zulu fra badeøya spilte jo whist og quickstep i min taxi."
+ 	)
++#endif
+ LANGUAGE(
+ 	 nl	/* Dutch */,
  	 WP-SFD,
--	 "เป็นมนุษย์สุดประเสริฐเลิศคุณค่า - กว่าบรรดาฝูงสัตว์เดรัจฉาน - จงฝ่าฟันพัฒนาวิชาการ อย่าล้างผลาญฤๅเข่นฆ่าบีฑาใคร - ไม่ถือโทษโกรธแช่งซัดฮึดฮัดด่า - หัดอภัยเหมือนกีฬาอัชฌาสัย - ปฏิบัติประพฤติกฎกำหนดใจ - พูดจาให้จ๊ะ ๆ จ๋า ๆ น่าฟังเอยฯ"
-+	 "--------deleted--------"
+ 	 "Pa's wijze lynx bezag vroom het fikse aquaduct."
+ 	 /* Dad's wise lynx piously regarded the substantial aqueduct. */
+ 	)
++#if 0
+ LANGUAGE(
+ 	 nn	/* Norwegian Nynorsk */,
+ 	 GLASS,
+@@ -484,12 +515,14 @@
+ 	 "काचं शक्नोम्यत्तुम् । नोपहिनस्ति माम् ॥"
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#endif
+ LANGUAGE(
+ 	 scn	/* Sicilian */,
+ 	 GLASS,
+ 	 "Puotsu mangiari u vitru, nun mi fa mali."
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
++#if 0	
+ LANGUAGE(
+ 	 sk	/* Slovak */,
+ 	 KERMIT,
+@@ -513,6 +546,7 @@
+ 	 "Чешће цeђење мрeжастим џаком побољшава фертилизацију генских хибрида."
+ 	 /* More frequent filtering through the reticular bag improves fertilization of genetic hybrids. */
+ 	)
++#endif
+ #if 0
+ LANGUAGE(
+ 	 sr-sr@latin	/* Serbian (Latin) */,
+@@ -521,6 +555,7 @@
+ 	 /* More frequent filtering through the reticular bag improves fertilization of genetic hybrids. */
+ 	)
+ #endif
++#if 0
+ LANGUAGE(
+ 	 sv	/* Swedish */,
+ 	 WP-SFD,
+@@ -551,12 +586,14 @@
+ 	 "เป็นมนุษย์สุดประเสริฐเลิศคุณค่า - กว่าบรรดาฝูงสัตว์เดรัจฉาน - จงฝ่าฟันพัฒนาวิชาการ อย่าล้างผลาญฤๅเข่นฆ่าบีฑาใคร - ไม่ถือโทษโกรธแช่งซัดฮึดฮัดด่า - หัดอภัยเหมือนกีฬาอัชฌาสัย - ปฏิบัติประพฤติกฎกำหนดใจ - พูดจาให้จ๊ะ ๆ จ๋า ๆ น่าฟังเอยฯ"
  	 /* Being a man is worthy - Beyond senseless animal - Begin educate thyself - Begone from killing and trouble - Bear not thy grudge, damn and, curse - Bestow forgiving and sporting - Befit with rules - Benign speech speak thou */
  	)
++#endif
  LANGUAGE(
-@@ -613,25 +613,25 @@
- LANGUAGE(
- 	 zh-cn	/* Chinese Simplified */,
+ 	 tl	/* Tagalog */,
  	 GLASS,
--	 "我能吞下玻璃而不伤身体。"
-+	 "--------deleted--------"
+ 	 "Kaya kong kumain nang bubog at hindi ako masaktan."
  	 /* I can eat glass and it doesn't hurt me. */
  	)
++#if 0
  LANGUAGE(
- 	 zh-mo	/* Chinese Traditional */,
- 	 GLASS,
--	 "我能吞下玻璃而不傷身體。"
-+	 "--------deleted--------"
+ 	 tr	/* Turkish */,
+ 	 WP-PANG,
+@@ -581,12 +618,14 @@
+ 	 "میں کانچ کھا سکتا ہوں اور مجھے تکلیف نہیں ہوتی ۔"
  	 /* I can eat glass and it doesn't hurt me. */
  	)
++#endif
  LANGUAGE(
- 	 zh-sg	/* Chinese Simplified */,
+ 	 vec	/* Venetian */,
  	 GLASS,
--	 "我能吞下玻璃而不伤身体。"
-+	 "--------deleted--------"
+ 	 "Mi posso magnare el vetro, no'l me fa mae."
  	 /* I can eat glass and it doesn't hurt me. */
  	)
++#if 0
  LANGUAGE(
- 	 zh-tw	/* Chinese Traditional */,
- 	 GLASS,
--	 "我能吞下玻璃而不傷身體。"
-+	 "--------deleted--------"
+ 	 vi	/* Vietnamese */,
+ 	 GSPECI,
+@@ -634,6 +673,7 @@
+ 	 "我能吞下玻璃而不傷身體。"
  	 /* I can eat glass and it doesn't hurt me. */
  	)
++#endif
  LANGUAGE(
+ 	 zlm	/* Malay */,
+ 	 GLASS,
