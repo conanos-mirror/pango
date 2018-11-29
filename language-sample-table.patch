@@ -1,0 +1,69 @@
+diff -Nur pango-1.42.4/pango/pango-language-sample-table.h pango-1.42.4-language/pango/pango-language-sample-table.h
+--- pango-1.42.4/pango/pango-language-sample-table.h	2018-08-20 07:21:39.000000000 -0700
++++ pango-1.42.4-language/pango/pango-language-sample-table.h	2018-11-28 23:02:49.649902537 -0800
+@@ -92,7 +92,7 @@
+ LANGUAGE(
+ 	 bn	/* Bengali */,
+ 	 GLASS,
+-	 "আমি কাঁচ খেতে পারি, তাতে আমার কোনো ক্ষতি হয় না।"
++	 "--------deleted--------"
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
+ LANGUAGE(
+@@ -294,7 +294,7 @@
+ LANGUAGE(
+ 	 ja	/* Japanese */,
+ 	 KERMIT,
+-	 "いろはにほへと ちりぬるを 色は匂へど 散りぬるを"
++	 "--------deleted--------"
+ 	)
+ LANGUAGE(
+ 	 jam	/* Jamaican Creole English */,
+@@ -481,7 +481,7 @@
+ LANGUAGE(
+ 	 sa	/* Sanskrit */,
+ 	 GLASS,
+-	 "काचं शक्नोम्यत्तुम् । नोपहिनस्ति माम् ॥"
++	 "--------deleted--------"
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
+ LANGUAGE(
+@@ -548,7 +548,7 @@
+ LANGUAGE(
+ 	 th	/* Thai */,
+ 	 WP-SFD,
+-	 "เป็นมนุษย์สุดประเสริฐเลิศคุณค่า - กว่าบรรดาฝูงสัตว์เดรัจฉาน - จงฝ่าฟันพัฒนาวิชาการ อย่าล้างผลาญฤๅเข่นฆ่าบีฑาใคร - ไม่ถือโทษโกรธแช่งซัดฮึดฮัดด่า - หัดอภัยเหมือนกีฬาอัชฌาสัย - ปฏิบัติประพฤติกฎกำหนดใจ - พูดจาให้จ๊ะ ๆ จ๋า ๆ น่าฟังเอยฯ"
++	 "--------deleted--------"
+ 	 /* Being a man is worthy - Beyond senseless animal - Begin educate thyself - Begone from killing and trouble - Bear not thy grudge, damn and, curse - Bestow forgiving and sporting - Befit with rules - Benign speech speak thou */
+ 	)
+ LANGUAGE(
+@@ -613,25 +613,25 @@
+ LANGUAGE(
+ 	 zh-cn	/* Chinese Simplified */,
+ 	 GLASS,
+-	 "我能吞下玻璃而不伤身体。"
++	 "--------deleted--------"
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
+ LANGUAGE(
+ 	 zh-mo	/* Chinese Traditional */,
+ 	 GLASS,
+-	 "我能吞下玻璃而不傷身體。"
++	 "--------deleted--------"
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
+ LANGUAGE(
+ 	 zh-sg	/* Chinese Simplified */,
+ 	 GLASS,
+-	 "我能吞下玻璃而不伤身体。"
++	 "--------deleted--------"
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
+ LANGUAGE(
+ 	 zh-tw	/* Chinese Traditional */,
+ 	 GLASS,
+-	 "我能吞下玻璃而不傷身體。"
++	 "--------deleted--------"
+ 	 /* I can eat glass and it doesn't hurt me. */
+ 	)
+ LANGUAGE(
