@@ -18,7 +18,7 @@ class PangoConan(ConanFile):
         "shared": [True, False],
         'fPIC': [True, False]
     }
-    default_options = { 'shared': False, 'fPIC': True }
+    default_options = { 'shared': True, 'fPIC': True }
 
     _source_subfolder = "source_subfolder"
     _build_subfolder = "build_subfolder"
@@ -30,8 +30,6 @@ class PangoConan(ConanFile):
         self.requires.add("harfbuzz/2.1.3@conanos/stable")
         self.requires.add("glib/2.58.1@conanos/stable")
         self.requires.add("fribidi/1.0.5@conanos/stable")
-
-        config_scheme(self)
     
     def build_requirements(self):
         self.build_requires("libffi/3.299999@conanos/stable")
@@ -49,6 +47,8 @@ class PangoConan(ConanFile):
     
     def configure(self):
         del self.settings.compiler.libcxx
+
+        config_scheme(self)
 
     def source(self):
         url_ = 'https://github.com/GNOME/pango/archive/{version}.tar.gz'.format(version=self.version)
